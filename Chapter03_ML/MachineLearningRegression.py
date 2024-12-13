@@ -5,7 +5,7 @@ from tf_utils.dummyData import regression_data
 
 
 def model(x: np.ndarray) -> np.ndarray:
-    m = 2.0  # slope
+    m = 2.1  # slope
     b = 5.0  # intercept
 
     return m * x + b
@@ -17,7 +17,7 @@ def main() -> None:
     y_pred = model(x)
 
     plt.scatter(x, y)
-    plt.plot(x, y_pred)
+    plt.plot(x, y_pred, color="red")
     plt.show()
 
 

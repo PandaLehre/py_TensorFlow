@@ -15,7 +15,7 @@ from keras.optimizers import Adam
 from keras.utils import to_categorical
 
 
-LOGS_DIR = os.path.abspath("C:/Users/Jan/OneDrive/_Coding/UdemyTF/logs")
+LOGS_DIR = os.path.abspath("/home/tt_s_adas_m3/py_TensorFlow/logs")
 if not os.path.exists(LOGS_DIR):
     os.mkdir(LOGS_DIR)
 MODEL_LOG_DIR = os.path.join(LOGS_DIR, "mnist_cnn4")
@@ -73,6 +73,7 @@ def plot_filters(model: Model) -> None:
     ax = ax.reshape(num_filters)
 
     for filter_idx in range(num_filters):
+        # plot each filter with kernel size (3, 3)
         ax[filter_idx].imshow(kernels[:, :, 0, filter_idx], cmap="gray")
 
     ax = ax.reshape(subplot_grid)

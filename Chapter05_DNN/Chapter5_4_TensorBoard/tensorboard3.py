@@ -10,7 +10,8 @@ from keras.optimizers import Adam
 from keras.utils import to_categorical
 
 
-LOGS_DIR = os.path.abspath("C:/Users/Jan/OneDrive/_Coding/UdemyTF/logs")
+LOGS_DIR = os.path.abspath("/home/tt_s_adas_m3/py_TensorFlow/logs")
+# LOGS_DIR = os.path.abspath("C:/Users/Jan/OneDrive/_Coding/UdemyTF/logs")
 if not os.path.exists(LOGS_DIR):
     os.mkdir(LOGS_DIR)
 
@@ -86,7 +87,7 @@ def main() -> None:
             batch_size=128,
             verbose=2,
             validation_data=(x_test, y_test),
-            callbacks=[tb_callback],
+            callbacks=[tb_callback],            # TensorBoard callback to log data for each model
         )
 
         scores = model.evaluate(x=x_test, y=y_test, verbose=0)

@@ -14,7 +14,7 @@ from keras.optimizers import Adam
 from keras.utils import to_categorical
 
 
-LOGS_DIR = os.path.abspath("C:/Users/Jan/OneDrive/_Coding/UdemyTF/logs")
+LOGS_DIR = os.path.abspath("/home/tt_s_adas_m3/py_TensorFlow/logs")
 if not os.path.exists(LOGS_DIR):
     os.mkdir(LOGS_DIR)
 MODEL_LOG_DIR = os.path.join(LOGS_DIR, "mnist_cnn4")
@@ -37,6 +37,7 @@ def prepare_dataset(num_classes: int) -> tuple:
 def build_model(img_shape: tuple[int, int, int], num_classes: int) -> Model:
     input_img = Input(shape=img_shape)
 
+    # create a Conv2D object and call it with the input tensor
     x = Conv2D(filters=32, kernel_size=3, padding="same")(input_img)
     x = Activation("relu")(x)
     x = Conv2D(filters=32, kernel_size=3, padding="same")(x)
@@ -80,7 +81,7 @@ if __name__ == "__main__":
         write_graph=True,
     )
 
-    train = False
+    train = True
     if train:
         model.fit(
             x=x_train,

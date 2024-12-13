@@ -20,6 +20,12 @@ def main() -> None:
     info2 = car2.get_info()
     print(info2)
 
+    name = car2.name
+
+    print(f"{name}")
+
+    print(f"{'TensorFlow'}")
+
 
 if __name__ == "__main__":
     main()

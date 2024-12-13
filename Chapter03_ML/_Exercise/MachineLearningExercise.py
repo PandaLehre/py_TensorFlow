@@ -6,12 +6,12 @@ from sklearn.model_selection import train_test_split
 from tf_utils.dummyData import regression_data
 
 
-def mae(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:  # noqa: ARG001
-    return np.array([])
+def mae(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
+    return np.array(np.mean(np.abs(y_true - y_pred)))
 
 
-def mse(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:  # noqa: ARG001
-    return np.array([])
+def mse(y_true: np.ndarray, y_pred: np.ndarray) -> np.ndarray:
+    return np.array(np.mean(np.square(y_true - y_pred)))
 
 
 def main() -> None:
@@ -34,6 +34,7 @@ def main() -> None:
 
     plt.scatter(x, y)
     plt.plot(x_test, y_pred)
+    plt.text(-8, 20, f"R2-Score: {r2_score}\nMAE: {mae_score}\nMSE: {mse_score}")
     plt.show()
 
 

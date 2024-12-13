@@ -5,8 +5,8 @@ from tf_utils.dummyData import classification_data
 
 
 def model(x: np.ndarray) -> np.ndarray:
-    m = -1.5  # slope
-    b = 5.0  # intercept
+    m = -3.8  # slope
+    b = 15.0  # intercept
 
     return m * x + b
 

@@ -21,7 +21,7 @@ def main() -> None:
     y_pred = regr.predict(x_test)
 
     plt.scatter(x, y)
-    plt.plot(x_test, y_pred)
+    plt.plot(x_test, y_pred, color="green")
     plt.show()
 
 

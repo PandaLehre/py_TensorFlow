@@ -11,7 +11,7 @@ from keras.optimizers import Adam
 from keras.utils import to_categorical
 
 
-MODELS_DIR = os.path.abspath("C:/Users/Jan/OneDrive/_Coding/UdemyTF/models")
+MODELS_DIR = os.path.abspath("/home/tt_s_adas_m3/py_TensorFlow/models")
 MODEL_FILE_PATH = os.path.join(MODELS_DIR, "mnist_model.h5")
 
 
@@ -84,7 +84,7 @@ if __name__ == "__main__":
         metrics=["accuracy"],
     )
 
-    train = False
+    train = True
     if train:
         model.fit(
             x=x_train,

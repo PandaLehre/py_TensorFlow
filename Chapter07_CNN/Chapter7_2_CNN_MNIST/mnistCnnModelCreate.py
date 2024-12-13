@@ -30,9 +30,9 @@ def build_model(
 ) -> Sequential:
     model = Sequential()
 
-    model.add(Conv2D(filters=16, kernel_size=3, input_shape=img_shape))
+    model.add(Conv2D(filters=16, kernel_size=3, padding="same", strides=1, input_shape=img_shape))
     model.add(Activation("relu"))
-    model.add(MaxPool2D())
+    model.add(MaxPool2D(strides=2))
     model.add(Conv2D(filters=32, kernel_size=3))
     model.add(Activation("relu"))
     model.add(MaxPool2D())
@@ -44,7 +44,7 @@ def build_model(
     return model
 
 
-if __name__ == "__main__":
+def main() -> None:
     img_shape = (28, 28, 1)
     num_classes = 10
 
@@ -58,14 +58,18 @@ if __name__ == "__main__":
         metrics=["accuracy"],
     )
 
-    model.fit(
-        x=x_train,
-        y=y_train,
-        epochs=10,
-        batch_size=128,
-        verbose=1,
-        validation_data=(x_test, y_test),
-    )
+    # model.fit(
+    #     x=x_train,
+    #     y=y_train,
+    #     epochs=10,
+    #     batch_size=128,
+    #     verbose=1,
+    #     validation_data=(x_test, y_test),
+    # )
 
-    scores = model.evaluate(x=x_test, y=y_test, verbose=0)
-    print(scores)
+    # scores = model.evaluate(x=x_test, y=y_test, verbose=0)
+    # print(scores)
+
+
+if __name__ == "__main__":
+    main()

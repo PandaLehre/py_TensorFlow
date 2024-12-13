@@ -7,9 +7,7 @@ from keras.optimizers import Adam
 from keras.utils import to_categorical
 
 
-def get_dataset(
-    num_features: int,
-    num_classes: int,
+def get_dataset(num_features: int, num_classes: int,
 ) -> tuple[tuple[np.ndarray, np.ndarray], tuple[np.ndarray, np.ndarray]]:
     (x_train, y_train), (x_test, y_test) = mnist.load_data()
     x_train = x_train.reshape(-1, num_features).astype(np.float32)
@@ -21,9 +19,11 @@ def get_dataset(
 
 def build_model(num_features: int, num_classes: int) -> Sequential:
     model = Sequential()
-    model.add(Dense(units=100, input_shape=(num_features,)))
+    model.add(Dense(units=num_features / 2, input_shape=(num_features,)))
     model.add(Activation("relu"))
-    model.add(Dense(units=100, input_shape=(num_features,)))
+    model.add(Dense(units=num_features, input_shape=(num_features,)))
+    model.add(Activation("relu"))
+    model.add(Dense(units=num_features / 4, input_shape=(num_features,)))
     model.add(Activation("relu"))
     model.add(Dense(units=num_classes))
     model.add(Activation("softmax"))
@@ -32,8 +32,8 @@ def build_model(num_features: int, num_classes: int) -> Sequential:
 
 
 def main() -> None:
-    num_features = 784
-    num_classes = 10
+    num_features = 784  # 28 * 28, flattened image size for MNIST
+    num_classes = 10    # 10 classes for MNIST
 
     (x_train, y_train), (x_test, y_test) = get_dataset(
         num_features,

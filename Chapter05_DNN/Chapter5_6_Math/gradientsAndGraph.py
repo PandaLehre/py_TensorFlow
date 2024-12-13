@@ -11,7 +11,7 @@ from keras.optimizers import Adam
 
 
 LOGS_DIR = os.path.abspath(
-    "C:/Users/Jan/OneDrive/_Coding/UdemyTF/logs/computation/",
+    "/home/tt_s_adas_m3/py_TensorFlow/logs",
 )
 MODEL_LOG_DIR = os.path.join(LOGS_DIR, "gradient_model")
 

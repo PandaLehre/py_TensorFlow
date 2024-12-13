@@ -20,8 +20,8 @@ def main() -> None:
     print(f"Y_start: {y_start}")
     plot_rosenbrock(x_start)
 
-    learning_rate = 0.005
-    num_iterations = 1000
+    learning_rate = 0.0001
+    num_iterations = 15000
 
     gradient_steps = []
 

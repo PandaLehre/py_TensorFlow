@@ -6,7 +6,7 @@ from keras.models import load_model
 from keras.utils import to_categorical
 
 
-MODELS_DIR = os.path.abspath("C:/Users/Jan/OneDrive/_Coding/UdemyTF/models")
+MODELS_DIR = os.path.abspath("/home/tt_s_adas_m3/py_TensorFlow/models")
 MODEL_FILE_PATH = os.path.join(MODELS_DIR, "full_mnist_model.h5")
 
 
